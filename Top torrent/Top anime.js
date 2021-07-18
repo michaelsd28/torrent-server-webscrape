@@ -40,11 +40,8 @@ const date = new Date();
   });
 
   let top_seeds = [];
-  $(
-    "body > div > div.table-responsive > table > tbody > tr:nth-child(n) > td:nth-child(6)"
-  ).each((index, value) => {
+  $( "body > div > div.table-responsive > table > tbody > tr:nth-child(n) > td:nth-child(6)").each((index, value) => {
     let link_s = $(value).text();
-
     top_seeds.push(link_s);
   });
 

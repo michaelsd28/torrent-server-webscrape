@@ -1,10 +1,10 @@
 const express = require("express");
-const cheerio = require("cheerio");
-const request = require("request");
 const cron = require('node-schedule');
 const app = express();
 const cors = require("cors");
 const date = new Date();
+const path = require('path');
+
 
 app.use(cors());
 
@@ -22,17 +22,34 @@ app.use("/top-shows", top_shows);
 app.use("/top-anime", top_anime);
 app.use("/top-games", top_games);
 
-app.use("/pirate-search", pirate_search);
-app.use("/nyaa-search", nyaa_search);
-app.use("/rarbg-search", rarbg_search);
-app.use("/1337x-search", X1337_search);
-app.use("/1337x/", X1337_search);
+// app.use("/pirate-search", pirate_search);
+// app.use("/nyaa-search", nyaa_search);
+// app.use("/rarbg-search", rarbg_search);
+// app.use("/1337x-search", X1337_search);
+// app.use("/1337x/", X1337_search);
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/page.html");
-  console.log(date)
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/page.html");
+//   console.log(date)
+
+// });
 
 app.listen(3001, () => {
   console.log(` server running on port -> http://localhost:3001`);
 });
+
+
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function(req,res) {
+		res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})

@@ -1,0 +1,345 @@
+#all-columns img {
+  height: auto;
+  width: auto;
+  padding: 0;
+  margin: 0;
+
+  max-height: 15vh;
+  max-width: 10vw;
+  pointer-events: none;
+}
+
+#all-columns .fa-magnet {
+  padding: 0;
+  font-size: 1.3vw;
+}
+
+
+.small-trash{
+  position: absolute;
+  left: 235px;
+
+  
+
+}
+
+
+.small-trash:hover{
+  position: absolute;
+  left: 230px;
+  padding-top: 3px;
+  padding: 5px;
+  margin: 0;
+
+color: red;
+cursor: default;
+border-radius: 10px;
+border:  red solid 1px;
+
+}
+li{
+  padding: 2px;
+}
+
+
+#all-columns {
+  padding: 0 50px 0 50px;
+}
+#all-columns div {
+  margin: auto;
+  background-color: #34495e;
+  border-radius: 5px;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+#all-columns th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: left;
+}
+
+#all-columns th:before {
+  counter-increment: step;
+
+  /* Display the counter named "step" in a decimal format */
+  content: counter(step, decimal);
+  color: blue;
+
+  /* Because there's an ancestor with relative positioning, this pseudo element will be positioned absolutely in relation to that ancestor */
+  position: absolute;
+  left: -16px;
+}
+
+#movies-row > div > table > tbody > tr:nth-child(n) > td:nth-child(3) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: left;
+}
+
+#all-columns .custom-counter {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#all-columns .custom-counter li {
+  counter-increment: step-counter;
+  margin: 10px 10px 5px 10px;
+}
+
+.search-table {
+  margin: auto;
+  height: 200px;
+  width: 70vw;
+}
+
+.list-top-torrent {
+  content: counter(step-counter);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+  position: relative;
+  bottom: 3px;
+}
+
+/* movies row*/
+
+/*table codepen*/
+
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+
+.rwd-table {
+  margin: 1em 0;
+  min-width: 300px;
+}
+.rwd-table tr {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.rwd-table th {
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: 0.5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: 0.5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+.rwd-table th,
+.rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: 0.25em 0.5em;
+  }
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+  color: #34495e;
+}
+
+.rwd-table {
+  background: #34495e;
+  color: #fff;
+  border-radius: 0.4em;
+  overflow: hidden;
+  font-family: Montserrat, sans-serif;
+
+  padding-top: 150px;
+}
+.rwd-table tr {
+  border-color: #46637f;
+}
+.rwd-table th,
+.rwd-table td {
+  margin: 0.5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th,
+  .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th,
+.rwd-table td:before {
+  color: #dd5;
+}
+
+.games-row,
+.shows-row,
+.movies-row,
+.anime-row {
+  position: relative;
+}
+#all-columns img {
+  position: absolute;
+
+  left: 50px;
+  top: 50px;
+}
+
+/* search table*/
+
+.search-table-wrapper {
+  width: 96vw;
+  margin: auto;
+  padding-left: 20px;
+}
+
+.magnet-search-table {
+  color: rgb(67, 147, 201);
+}
+.magnet-search-table:hover {
+  color: rgb(41, 122, 230);
+}
+
+.search-table {
+  white-space: nowrap;
+
+  background: #34495e;
+  color: #fff;
+  border-radius: 0.4em;
+  overflow: hidden;
+  font-family: Montserrat, sans-serif;
+
+  padding: 50px;
+  margin-top: 50px;
+  text-align: left;
+
+  border: #dd5 solid 5px;
+
+  width: -0vw;
+}
+
+.table-type {
+  color: aqua;
+}
+
+.table-seeds {
+  color: rgb(68, 241, 68);
+}
+
+.search-table tr {
+  border-color: #46637f;
+}
+.search-table th,
+.search-table td {
+  margin: 0.5em 1em;
+}
+.small-size {
+  color: rgb(127, 187, 255);
+}
+@media (min-width: 480px) {
+  .search-table th,
+  .search-table td {
+    padding: 1em !important;
+  }
+}
+.search-table th,
+.search-table td:before {
+  color: #dd5;
+}
+
+
+
+
+
+.go-back-img {
+  padding: 0 25px 5px 25px;
+  left: 25px;
+  position: relative;
+  height: 12vh;
+
+}
+
+/* nyaa box*/
+
+.nyaa-wrapper,
+.pirate-wrapper,
+.rarbg-wrapper,
+.X1337-search {
+  cursor: pointer;
+}
+
+
+/*2222*/
+
+*/ .top-container {
+  border: none;
+}
+
+.sub-container {
+  position: absolute;
+
+  top: 245px;
+}
+
+
+
+ul {
+  border-radius: 5px;
+
+  overflow: auto;
+  /* this will hide the scrollbar in mozilla based browsers */
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  /* this will hide the scrollbar in internet explorers */
+  -ms-overflow-style: none;
+}
+
+ul::-webkit-scrollbar {
+  left: 25px;
+  width: 0 !important;
+  display: none;
+}
+
+/*animation-lottie*/
+.Animation-lottie {
+  display: grid;
+  justify-content: center;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+  align-self: center;
+  align-items: center;
+  border: none;
+  height: 10vh;
+  width: 100vw;
+}
