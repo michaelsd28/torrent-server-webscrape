@@ -22,11 +22,11 @@ app.use("/top-shows", top_shows);
 app.use("/top-anime", top_anime);
 app.use("/top-games", top_games);
 
-// app.use("/pirate-search", pirate_search);
-// app.use("/nyaa-search", nyaa_search);
-// app.use("/rarbg-search", rarbg_search);
-// app.use("/1337x-search", X1337_search);
-// app.use("/1337x/", X1337_search);
+app.use("/pirate-search", pirate_search);
+app.use("/nyaa-search", nyaa_search);
+app.use("/rarbg-search", rarbg_search);
+app.use("/1337x-search", X1337_search);
+app.use("/1337x/", X1337_search);
 
 // app.get("/", (req, res) => {
 //   res.sendFile(__dirname + "/page.html");
