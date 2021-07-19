@@ -7,7 +7,8 @@ const fs = require("fs");
 const got = require("got");
 const date = new Date();
 const changeLink = require("../Search-sites/search link request");
-const localhostRED = "http://localhost:3001/1337x/redirect/"
+const ip =  "https://52.91.133.3/"
+const localhostRED = ip+"1337x/redirect/"
 
 //cron.scheduleJob("* * * * *", async () => {
 //cron.scheduleJob(" 0 1 * * *", async () => {
