@@ -1,0 +1,4 @@
+# NodeJS, npm, nodemon DockerFile-Ready
+FROM alpine
+MAINTAINER MichaelSS
+RUN apt-get update
