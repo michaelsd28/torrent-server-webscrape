@@ -25,6 +25,8 @@ app.use("/top-games", top_games);
 app.use("/pirate-search", pirate_search);
 app.use("/nyaa-search", nyaa_search);
 app.use("/rarbg-search", rarbg_search);
+const https = require("https");
+const fs = require("fs");
 app.use("/1337x-search", X1337_search);
 app.use("/1337x/", X1337_search);
 
@@ -34,10 +36,18 @@ app.use("/1337x/", X1337_search);
 
 // });
 
-app.listen(3001, () => {
-  console.log(` server running on port -> http://localhost:3001`);
-});
+const sslServer = https.createServer(
+  {
+    key: fs.readFileSync(path.join(__dirname, "cert", "key.pem")),
+    cert: fs.readFileSync(path.join(__dirname, "cert", "cert.pem")),
+  },
+  app
+);
 
+sslServer.listen(443,()=>{
+
+  console.log('sslServer is running on  https://localhost:443 ')
+})
 
 
 app.use(express.static(path.join(__dirname, 'build')));
