@@ -1,10 +1,9 @@
 const express = require("express");
-const cron = require('node-schedule');
+const cron = require("node-schedule");
 const app = express();
 const cors = require("cors");
 const date = new Date();
-const path = require('path');
-
+const path = require("path");
 
 app.use(cors());
 
@@ -44,25 +43,20 @@ const sslServer = https.createServer(
   app
 );
 
-sslServer.listen(443,()=>{
-
-  console.log('sslServer is running on  https://localhost:443 ')
-})
-
-
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/', function(req,res) {
-		res.sendFile(path.join(__dirname, 'build', 'index.html'));
+sslServer.listen(443, () => {
+  console.log("sslServer is running on  https://localhost:443 ");
 });
 
+app.use(express.static(path.join(__dirname, "build")));
 
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
-
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'), function(err) {
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "build", "index.html"), function (err) {
     if (err) {
-      res.status(500).send(err+"build - deploy")
+      res.status(500).send(err + "build - deploy");
     }
-  })
-})
+  });
+});
