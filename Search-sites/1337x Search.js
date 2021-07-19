@@ -7,7 +7,9 @@ const fs = require("fs");
 const got = require("got");
 const changeLink = require("./search link request");
 const X1337_pre_link = "https://1337x.to";
-const redirect_link = "http://localhost:3001/1337x/redirect/"
+
+const ip =  "https://52.91.133.3/"
+const redirect_link =  ip + "1337x/redirect/"
 
 router.get("/:id", async (req, res) => {
   try {
