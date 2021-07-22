@@ -62,7 +62,7 @@ cron.scheduleJob(" 0 1 * * *", async () => {
 });
 
 router.get("/", async (req, res) => {
-  res.json(top_Movies_JSON);
+
   console.log(`top movies file updated on ${date}`);
 
   res.sendFile(__dirname + "/z_Top Movies.json");
