@@ -85,7 +85,7 @@ router.get("/", (req, res) => {
 
   res.sendFile(__dirname + "/z_Top Shows.json");
 
-  console.log("sent file /z_Top Shows.json");
+  console.log("sent file /z_Top Shows.json",Date());
 });
 
 module.exports = router;

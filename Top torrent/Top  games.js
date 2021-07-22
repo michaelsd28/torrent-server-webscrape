@@ -71,7 +71,7 @@ console.log(`top games* file updated on ${date}`)
 router.get("/", async (req, res) => {
   res.sendFile(__dirname + "/z_Top Games.json");
   
-  console.log("sent file /z_Top Games.json")
+  console.log("sent file /z_Top Games.json",Date());
 });
 
 

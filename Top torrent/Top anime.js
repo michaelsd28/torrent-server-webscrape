@@ -75,7 +75,7 @@ const date = new Date();
 router.get("/", async (req, res) => {
   res.sendFile(__dirname + "/z_Top anime.json");
 
-  console.log("sent file /z_Top anime.json");
+  console.log("sent file /z_Top anime.json",Date());
 });
 
 module.exports = router;
