@@ -1,12 +1,12 @@
 const express = require("express");
 const cheerio = require("cheerio");
 const router = express.Router();
-const pirate_search = "https://1337x.to/search/";
+const pirate_search = "https://1337x.unblockninja.com/search/";
 const cron = require('node-schedule');
 const fs = require("fs");
 const got = require("got");
 const changeLink = require("./search link request");
-const X1337_pre_link = "https://1337x.to";
+const X1337_pre_link = "https://1337x.unblockninja.com";
 
 const ip =  "https://52.91.133.3/"
 const redirect_link =  ip + "1337x/redirect/"
