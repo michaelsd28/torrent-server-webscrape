@@ -4,11 +4,10 @@ const router = express.Router();
 const pirate_search = "https://1337x.to/search/";
 const got = require("got");
 const changeLink = require("./search link request");
-const X1337_pre_link = "https://1337x.to/";
+const X1337_pre_link = "https://1337x.to";
 
-
-const ip =  "https://52.91.133.3/"
-const redirect_link =  ip + "1337x/redirect/"
+const ip = "https://localhost/";
+const redirect_link = ip + "1337x/redirect/";
 
 router.get("/:id", async (req, res) => {
   try {
@@ -20,13 +19,8 @@ router.get("/:id", async (req, res) => {
     console.log(search_pirate, "search_1337x ******");
 
     const html = await got(search_pirate);
-    console.log(html.statusCode,"html.statusCode ***search_1337x ****")
-    const $ = cheerio.load(html.body,"html.body");
-
-
-
-
-
+    const $ = cheerio.load(html.body);
+    console.log(html.statusCode, "html.statusCode ***search_1337x ****");
 
     /* search title */
 
@@ -39,21 +33,17 @@ router.get("/:id", async (req, res) => {
       top_Titles.push(link);
     });
 
-
-
     let top_Magnet = [];
     $(
       "body > main > div > div > div > div.box-info-detail.inner-table > div.table-list-wrap > table > tbody > tr:nth-child(n) > td.coll-1.name > a:nth-child(2)"
     ).each((index, value) => {
       let link_M = $(value).attr("href");
 
+      let fake_link = changeLink.slashFAKE(X1337_pre_link + link_M);
 
-      let fake_link = changeLink.slashFAKE( X1337_pre_link + link_M)
-    
-       redirect_link
-    
+      redirect_link;
 
-      top_Magnet.push( redirect_link +fake_link );
+      top_Magnet.push(redirect_link + fake_link);
     });
 
     let top_Seeds = [];
@@ -97,60 +87,24 @@ router.get("/:id", async (req, res) => {
 
     res.json(top_Movies_JSON);
   } catch (error) {
-    console.log(error,"error*** top_Movies_JSON");
+    console.log(error, "error*** top_Movies_JSON");
   }
 });
 
+router.get("/redirect/:torrentRedirect", async (req, res) => {
+  try {
+    let params = req.params.torrentRedirect;
+    let req_link = changeLink.slashREDIRECT(params, "^", "/");
 
+    console.log(req_link, "req_link");
 
+    const html = await got(req_link);
+    const $ = cheerio.load(html.body);
 
+    let magnet = $(".box-info li a").attr("href");
 
-
-
-
-
-
-router.get("/redirect/:torrentRedirect", async (req,res)=>{
-
-  try{
-
-
- 
-
-  let params = req.params.torrentRedirect
-  let req_link = changeLink.slashREDIRECT(params,"^","/")
-
-  console.log(req_link,"req_link")
-
-  const html = await got(req_link);
-  const $ = cheerio.load(html.body);
-
-
-
-
-
-
-let magnet =  $('.box-info li a').attr('href');
-
-
-
-
-
-res.status(301).redirect(magnet)
-
-
-
-}catch(error){
-
-}
-
-
-})
-
-
-
-
-
-
+    res.status(301).redirect(magnet);
+  } catch (error) {}
+});
 
 module.exports = router;
