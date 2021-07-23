@@ -1,13 +1,26 @@
 const express = require("express");
 const cheerio = require("cheerio");
 const router = express.Router();
-const pirate_search = "https://1337x.to/search/";
+const pirate_search = "https://www.1377x.to/search/";
 const got = require("got");
 const changeLink = require("./search link request");
-const X1337_pre_link = "https://1337x.to";
+const X1337_pre_link = "https://www.1377x.to";
 
-const ip = "https://localhost/";
+const ip = "https://ec2-52-91-133-3.compute-1.amazonaws.com/";
 const redirect_link = ip + "1337x/redirect/";
+
+
+
+// 1337x.to (default)
+// 1337x.tw
+// 1377x.to
+// 1337xx.to
+// 1337x.st
+// x1337x.ws
+// x1337x.eu
+// x1337x.se
+// 1337x.is
+// 1337x.gd
 
 router.get("/:id", async (req, res) => {
   try {
@@ -87,7 +100,7 @@ router.get("/:id", async (req, res) => {
 
     res.json(top_Movies_JSON);
   } catch (error) {
-    console.log(error, "error*** top_Movies_JSON");
+    console.log("error*** top_Movies_JSON");
   }
 });
 
