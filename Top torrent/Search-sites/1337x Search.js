@@ -1,11 +1,12 @@
 const express = require("express");
 const cheerio = require("cheerio");
 const router = express.Router();
-const pirate_search = "https://1337x.to/search/";
+const pirate_search = "https://1337x.unblockninja.com/srch?search=";
+const cron = require('node-schedule');
+const fs = require("fs");
 const got = require("got");
 const changeLink = require("./search link request");
-const X1337_pre_link = "https://1337x.to/";
-
+const X1337_pre_link = "https://1337x.unblockninja.com";
 
 const ip =  "https://52.91.133.3/"
 const redirect_link =  ip + "1337x/redirect/"
@@ -14,16 +15,14 @@ router.get("/:id", async (req, res) => {
   try {
     const myParams = req.params.id;
     const search_pirate = changeLink.linkRequestNyaa(
-      pirate_search + myParams + "/1/"
+      pirate_search + myParams 
     );
 
     console.log(search_pirate, "search_1337x ******");
 
     const html = await got(search_pirate);
-    console.log(html.statusCode,"html.statusCode ***search_1337x ****")
-    const $ = cheerio.load(html.body,"html.body");
-
-
+    console.log(html.statusCode,"html.statusCode")
+    const $ = cheerio.load(html.body);
 
 
 
@@ -97,7 +96,7 @@ router.get("/:id", async (req, res) => {
 
     res.json(top_Movies_JSON);
   } catch (error) {
-    console.log(error,"error*** top_Movies_JSON");
+    console.log("error","top_Movies_JSON");
   }
 });
 

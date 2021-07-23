@@ -1,7 +1,7 @@
 const express = require("express");
 const cheerio = require("cheerio");
 const router = express.Router();
-const top_games_url = "https://1337x.to/top-100-games";
+const top_games_url = "https://1337x.unblockninja.com/top-100-games";
 const cron = require('node-schedule');
 const fs = require("fs");
 const got = require("got");
@@ -9,6 +9,13 @@ const date = new Date();
 const changeLink = require("../Search-sites/search link request");
 const ip =  "https://52.91.133.3/"
 const localhostRED = ip+"1337x/redirect/"
+
+
+
+// Search '1080' in 'Movies' category and limit to 20 results
+
+
+
 
 //cron.scheduleJob("* * * * *", async () => {
 //cron.scheduleJob(" 0 1 * * *", async () => {
@@ -36,7 +43,7 @@ const localhostRED = ip+"1337x/redirect/"
   $(
     "body > main > div > div > div.featured-list > div > table > tbody > tr:nth-child(n) > td.coll-1.name > a:nth-child(2)"
   ).each((index, value) => {
-    let link = localhostRED +  changeLink.slashFAKE ("https://1337x.to" + `${$(value).attr("href")}`);
+    let link = localhostRED +  changeLink.slashFAKE ("https://1337x.unblockninja.com" + `${$(value).attr("href")}`);
 
     top_link.push(  link);
   });

@@ -1,5 +1,7 @@
 const express = require("express");
 const cron = require("node-schedule");
+const https = require("https");
+const fs = require("fs");
 const app = express();
 const cors = require("cors");
 const date = new Date();
@@ -24,8 +26,7 @@ app.use("/top-games", top_games);
 app.use("/pirate-search", pirate_search);
 app.use("/nyaa-search", nyaa_search);
 app.use("/rarbg-search", rarbg_search);
-const https = require("https");
-const fs = require("fs");
+
 app.use("/1337x-search", X1337_search);
 app.use("/1337x/", X1337_search);
 
@@ -44,7 +45,7 @@ const sslServer = https.createServer(
 );
 
 sslServer.listen(443, () => {
-  console.log("sslServer is running on  https://52.91.133.3/:443 ");
+  console.log("sslServer is running on  https://52.91.133.3/ ");
 });
 
 app.use(express.static(path.join(__dirname, "build")));
