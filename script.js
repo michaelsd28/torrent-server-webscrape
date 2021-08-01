@@ -13,11 +13,26 @@ const top_movies = require("./Top torrent/Top movies");
 const top_shows = require("./Top torrent/Top Shows");
 const top_anime = require("./Top torrent/Top anime");
 const top_games = require("./Top torrent/Top  games");
+const updateList = require("./Top torrent/z_Update List")
+
 
 const pirate_search = require("./Search-sites/Pirate bay");
 const nyaa_search = require("./Search-sites/Nyaa search");
 const rarbg_search = require("./Search-sites/RARBG search");
 const X1337_search = require("./Search-sites/1337x Search");
+
+app.get("/refresh",(req,res)=>{
+
+    updateList.fetch_top_animes()
+    updateList.fetch_top_games()
+    updateList.fetch_top_shows()
+    updateList.fetch_top_movies()
+
+    res.send("refreshed files")
+
+})
+
+
 app.use("/top-movies", top_movies);
 app.use("/top-shows", top_shows);
 app.use("/top-anime", top_anime);
@@ -30,11 +45,7 @@ app.use("/rarbg-search", rarbg_search);
 app.use("/1337x-search", X1337_search);
 app.use("/1337x/", X1337_search);
 
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/page.html");
-//   console.log(date)
 
-// });
 
 const sslServer = https.createServer(
   {
@@ -44,14 +55,18 @@ const sslServer = https.createServer(
   app
 );
 
+
 sslServer.listen(443, () => {
   console.log("sslServer is running on  https://52.91.133.3/ ");
 });
+
+
 
 app.use(express.static(path.join(__dirname, "build")));
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
+
 });
 
 app.get("/*", function (req, res) {
@@ -60,4 +75,8 @@ app.get("/*", function (req, res) {
       res.status(500).send(err + "build - deploy");
     }
   });
+
+
+
+
 });

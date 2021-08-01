@@ -11,16 +11,6 @@ const redirect_link = ip + "1337x/redirect/";
 
 
 
-// 1337x.to (default)
-// 1337x.tw
-// 1377x.to
-// 1337xx.to
-// 1337x.st
-// x1337x.ws
-// x1337x.eu
-// x1337x.se
-// 1337x.is
-// 1337x.gd
 
 router.get("/:id", async (req, res) => {
   try {
