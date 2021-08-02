@@ -59,11 +59,12 @@ cron.scheduleJob(" 0 1 * * *", async () => {
   fs.writeFile(__dirname + "/z_Top Movies.json", topMOVIESfile, (err) => {
     if (err) throw err;
   });
+
+  console.log(`top anime file updated on ${date}`)
 });
 
 router.get("/", async (req, res) => {
 
-  console.log(`top movies file updated on ${date}`);
 
   res.sendFile(__dirname + "/z_Top Movies.json");
 

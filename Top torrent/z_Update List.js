@@ -182,6 +182,8 @@ const localhostRED = ip+"1337x/redirect/"
     fs.writeFile(__dirname + "/z_Top Movies.json", topMOVIESfile, (err) => {
       if (err) throw err;
     });
+    console.log(`top movies file updated on ${date}`)
+
 }
 
  async function fetch_top_shows(){
