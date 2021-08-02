@@ -59,7 +59,7 @@ app.use("/1337x/", X1337_search);
 
 let port = process.env.PORT || 8080;
 
-app.listen(8080,()=>{
+app.listen(3000,()=>{
 
 
   console.log("running on port 8080")
