@@ -56,10 +56,14 @@ const sslServer = https.createServer(
 );
 
 
-sslServer.listen(443, () => {
-  console.log("sslServer is running on  https://52.91.133.3/ ");
-});
 
+let port = process.env.PORT || 8080;
+
+app.listen(port,()=>{
+
+
+  console.log("running on port 8080")
+})
 
 
 app.use(express.static(path.join(__dirname, "build")));
