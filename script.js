@@ -47,13 +47,13 @@ app.use("/1337x/", X1337_search);
 
 
 
-const sslServer = https.createServer(
-  {
-    key: fs.readFileSync(path.join(__dirname, "cert", "key.pem")),
-    cert: fs.readFileSync(path.join(__dirname, "cert", "cert.pem")),
-  },
-  app
-);
+// const sslServer = https.createServer(
+//   {
+//     key: fs.readFileSync(path.join(__dirname, "cert", "key.pem")),
+//     cert: fs.readFileSync(path.join(__dirname, "cert", "cert.pem")),
+//   },
+//   app
+// );
 
 
 
