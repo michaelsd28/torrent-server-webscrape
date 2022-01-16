@@ -1,15 +1,11 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { DataContext } from "../Data Context/Top_context";
-import { localOBJ } from "../Animation/LocalStorage";
 import Torrent_search_table from "../Top/Torrent search table";
 import { filterDATA } from "./Filter data";
-import "../../Styles/Table-grid.css";
 import Loading from "../Animation/Loading";
 import PageControl from "../Top/PageControl";
 import GoTop from "../Top 4 columns/GoTop";
-const link = "http://localhost:3001/pirate-search/";
-const link1 = "http://localhost:3001/1337x-search/";
-const link2 = "http://localhost:3001/nyaa-search/";
+import "../../Styles/index.css"
 
 
 
@@ -17,7 +13,6 @@ function Pirate_bay_search() {
 
 
   const { search, search_link, loading, setLoading } = useContext(DataContext);
-  const [state, setstate] = useState(search);
   const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
   const [didMount, setDidMount] = useState(false);
   const [filter, setFilter] = useState(
@@ -26,6 +21,8 @@ function Pirate_bay_search() {
 
   useEffect(() => {
     setDidMount(true);
+
+ 
 
     async function fetchTop_Torrent() {
       const response = await fetch(`${search_link}${search}`);
@@ -53,31 +50,30 @@ function Pirate_bay_search() {
     );
   } else {
     return (
-      <div id="table-grid-parent" className="table-grid-parent two">
-        <div style={{ display: "none" }} className="filter-area">
-          {" "}
-        </div>
-        <div className="table-grid-2">
-          <div className="filter-data  top-torrent"></div>
-          <form>
+      <div className="container table-result"  >
+     
+        <div className="row justify-content-center" >
+         
+          <form   className="row justify-content-center col-12"  >
+            <div className="filter-container">
             <input
+        className="input-filter "
               onKeyUp={(e) => {
                 const newDATA = data.movies
                   ? data
                   : JSON.parse(localStorage.getItem("data"));
 
                 setFilter(filterDATA(newDATA, e.target.value));
+
               }}
               type="search"
-            ></input>
-            <label style={{ color: "white" }}>
-              {" "}
-              <i tabindex="1" className="fas fa-sort-alpha-up"></i>
-            </label>
+            />
+            <img src={process.env.PUBLIC_URL+"/images/filter.png"}  alt="filter"/>
+            </div>
           </form>
           {data.movies && <Torrent_search_table value={filter} />}{" "}
         </div>
-        <div className="table-grid-3"><PageControl/> <div className="button-go-top">       <GoTop/> </div> </div>
+        <div ><PageControl/> <div >       <GoTop/> </div> </div>
  
       </div>
     );

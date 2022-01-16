@@ -13,8 +13,10 @@ export function filterDATA (filter,event){
         size:[]
       };
     
-    
+  
     const filtered_titles =  filter.movies.map((title,index) => {
+
+      try{
         if(title.includes(event)){
     
           newData.movies.push(title)
@@ -27,6 +29,8 @@ export function filterDATA (filter,event){
     
     
         }
+      }catch(error){console.log(error,`      newData.movies.push(title)
+      `)}
 
     
         

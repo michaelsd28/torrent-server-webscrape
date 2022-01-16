@@ -3,11 +3,16 @@ import React from 'react'
 function GoTop() {
     return (
 
-        <div id="link-go-home" className="five ">
-            <a onClick={()=>window.scrollTo(0,0)} className="underline">
+        <div id="link-go-home" className=" go-top-footer">
     
-              Go  <img  src="https://image.flaticon.com/icons/png/512/753/753227.png" alt="top"></img>  
-            </a>
+            <span><a href="#">     </a> </span>
+
+
+            {/* <a onClick={()=>window.scrollTo(0,0)} className="underline"> */}
+    
+              {/* Go   */}
+              
+            {/* </a> */}
             
           </div>
     )

@@ -2,7 +2,7 @@
 import React, {  useContext } from "react";
 import Torrent_row from "./Torrent_row";
 import { DataContext } from "../Data Context/Top_context";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Games() {
 
@@ -14,15 +14,17 @@ function Games() {
     return (
       <div id="games-row" className="games-row">
 
-        
-      <img className="game-img" src="https://i.ibb.co/hgkWT3g/playmegames-reguler.png" alt="game logo"></img>
+   
+      <img style={{padding:"0 0 0 10px"}} src={process.env.PUBLIC_URL + '/images/controller2.png'}   alt="1337x"/>
 
-      {/* <img  className="controller-img" src="https://i.ibb.co/xLygGKB/toppng-com-controler-ps4-controller-pixel-art-1009x577.png"></img> */}
+
       <Torrent_row
           tTitle={data_games.games}
           tSeed={data_games.seeds}
           tMagnet={data_games.magnet}
+          topName={"Games"}
         />
+      
         </div>
     )
 }

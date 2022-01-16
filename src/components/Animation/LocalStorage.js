@@ -1,3 +1,6 @@
+
+  /* data */
+
 export   var localOBJ ={
     movies:[],
     magnet:[],
@@ -7,40 +10,21 @@ export   var localOBJ ={
     type:[]
   }
   
-
   !localStorage.getItem("data") && localStorage.setItem("data",JSON.stringify(localOBJ))
   
-
    export  const localData =  JSON.parse( localStorage.getItem("data"))
-
-
-
-//   console.log(localData ,"localData")
-
-
-
-
-
-
-
-
-
-
-
-
+/*data end*/
 
 
 
   /* suggestion */
+   var suggestionARR = []
 
-  !localStorage.getItem("suggestion") && localStorage.setItem("suggestion",JSON.stringify( []))
+!localStorage.getItem("suggestion") && localStorage.setItem("data",JSON.stringify(suggestionARR))
 
-export var suggestion = JSON.parse (localStorage.getItem("suggestion").split(","));
+export var suggestion = JSON.parse (localStorage.getItem("suggestion"));
+ 
 
 
-export const filter_suggestion = suggestion.filter(
-    (item,index)=> suggestion.indexOf(item)===index)
-    localStorage.setItem("suggestion",JSON.stringify(filter_suggestion))
 
-    localStorage.setItem("suggestion",JSON.stringify(filter_suggestion))
 

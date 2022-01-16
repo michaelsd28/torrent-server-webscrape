@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { DataContext } from "../Data Context/Top_context";
 import { Movies, Anime, Games, Shows } from "./index";
-import "../../Styles/Nested-rows.css";
 import Top_text from "../Top/Top text";
 import Loading from "../Animation/Loading";
 import GoTop from "./GoTop";
+import Footer from "../Footer";
+
 
 function AllColumns() {
   const { loading_top } = useContext(DataContext);
@@ -13,19 +14,22 @@ function AllColumns() {
     return (
       <>
         <Top_text />
-        <div id="all-columns" className="two  nested-rows-two">
-          <Movies />
+        <div id="all-columns justify-content-md-center"  className="">
+          <div className="row rwo-all-columns justify-content-md-center">
+          <Movies/>
           <Shows />
           <Anime />
           <Games />
+          </div>
         </div>
 
   
           <div  >
-          <GoTop />
+    
   
         </div>
         {/* <div className="four">4</div> */}
+        <Footer/>
       </>
     );
   } else {

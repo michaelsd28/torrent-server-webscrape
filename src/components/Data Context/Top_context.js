@@ -1,9 +1,19 @@
 import React, { createContext, useState, useEffect } from "react";
-import { obj, suggestion, filter_suggestion,localData } from "../Animation/LocalStorage";
-const top_movies_URL = "http://localhost:3001/top-movies";
-const top_shows_URL = "http://localhost:3001/top-shows";
-const top_games_URL = "http://localhost:3001/top-games";
-const top_anime_URL = "http://localhost:3001/top-anime";
+
+import { obj, suggestion} from "../Animation/LocalStorage";
+
+const ip = "https://torrent-app-v2.herokuapp.com/" 
+
+
+
+
+const top_movies_URL = ip+"top-movies";
+const top_shows_URL = ip+"top-shows";
+const top_games_URL = ip+"top-games";
+const top_anime_URL = ip+"top-anime";
+
+
+
 
 export const DataContext = createContext();
 
@@ -28,10 +38,10 @@ export const DataProvider = ({ children }) => {
 
 
   useEffect(() => {
-    console.log(filter_suggestion, "filter_suggestion - context");
+
     
 
-    async function fetchTop_Torrent() {
+   async function fetchTop_Torrent() {
       setDidMount(true);
 
       const response = await fetch(top_movies_URL);

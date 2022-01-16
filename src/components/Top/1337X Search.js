@@ -1,10 +1,18 @@
 import React, { useContext } from "react";
 import { DataContext } from "../Data Context/Top_context";
 import {  useHistory } from "react-router-dom";
-
-const link = "http://localhost:3001/1337x-search/"
+import { ButtonBase } from "@material-ui/core";
+import { B1337x_button } from "../../Styles/buttons-syles";
+const ip = "https://torrent-app-v2.herokuapp.com/"
+const link = ip+ "1337x-search/"
 
 function X1337_SEARCH() {
+  
+  const { setSearch, input_value, setSearch_link, setLoading } =
+    useContext(DataContext);
+
+
+
   const history = useHistory();
 
   const pirateSearch = () => {
@@ -12,10 +20,11 @@ function X1337_SEARCH() {
     history.push(path);
   };
 
-  const { setSearch, input_value,setSearch_link,setLoading  } = useContext(DataContext);
+
 
   return (
-    <div className="X1337-search"
+    <ButtonBase className="b1337x-search-button"
+    style={B1337x_button}
       onClick={() => {
         setSearch(input_value)
         setSearch_link(link)
@@ -25,10 +34,10 @@ function X1337_SEARCH() {
       <a onClick={pirateSearch}>
       <div id="X1337-search">
    
-        <img src="https://i.ibb.co/5LX40Vt/1337-X-logo.png"></img>
+        <img src={process.env.PUBLIC_URL + '/images/1337-X-logo.png'}   alt="1337x"  ></img>
       </div>
       </a>
-    </div>
+    </ButtonBase>
   );
 }
 

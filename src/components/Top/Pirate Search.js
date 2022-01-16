@@ -1,23 +1,31 @@
 import React, { useContext } from "react";
 import { DataContext } from "../Data Context/Top_context";
 import { useHistory } from "react-router-dom";
+import { ButtonBase } from "@material-ui/core";
+import { pirate_button } from "../../Styles/buttons-syles";
+const ip = "https://torrent-app-v2.herokuapp.com/";
+const link = ip + "pirate-search/";
 
-
-const link = "http://localhost:3001/pirate-search/";
-
+// piratehat.png
 function Pirate_bay_search() {
   const history = useHistory();
 
-  const pirateSearch = () => {
-    let path = "pirate-search";
-    history.push(path);
-  };
+
 
   const { setSearch, input_value, setSearch_link, setLoading } =
     useContext(DataContext);
 
   return (
-    <a className="pirate-wrapper" onClick={pirateSearch}>
+    <ButtonBase className="pirate-search-button" 
+
+    style={pirate_button}
+    onClick={() => {
+      setSearch(input_value);
+      setSearch_link(link);
+      setLoading(false);
+    }}
+    
+    >
       <div
         onClick={() => {
           setSearch(input_value);
@@ -27,14 +35,14 @@ function Pirate_bay_search() {
       >
         <div>
           <div id="pirate-bay">
-            <h3>
-              pirate bay
-              <i className="fas fa-skull-crossbones"></i>
-            </h3>
+            <h5>
+              PirateBay
+            <img src={process.env.PUBLIC_URL + '/images/piratehat.png'}></img>
+            </h5>
           </div>
         </div>
       </div>
-    </a>
+    </ButtonBase>
   );
 }
 

@@ -1,28 +1,34 @@
-import React from 'react'
-import Lottie from "lottie-react";
+import React, { useContext } from "react";
 
-
-
-const top_torrent_URL="http://localhost:3001/top-movies"
+import { DataContext } from "../Data Context/Top_context";
 
 function Top_text() {
+  const { loading_top, setLoading_top } = useContext(DataContext);
 
+  return (
+    <div id="top-50" className="top-torrent-text">
+      <h1>Top 25</h1>
+  
+      <img
 
+      draggable="false"
+        src={process.env.PUBLIC_URL + "/images/refresh.png"}
+        onClick={async () => {
+          setLoading_top(false);
+          let refresh = await fetch(
+            "https://torrent-app-v2.herokuapp.com/refresh"
+          );
 
+          setTimeout(() => {
+            window.location.reload(false);
+          }, 3000);
+        }}
 
+        className="fas fa-sync refresh-icon"
+      ></img>
 
-
-    return (
-        <div id="top-50" className='top-torrent'>
-      
-            <h1 >Top 50</h1>
-    
-
-            <i className="fas fa-file-download"></i>
-    
-         
-        </div>
-    )
+    </div>
+  );
 }
 
-export default Top_text
+export default Top_text;

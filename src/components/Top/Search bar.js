@@ -5,8 +5,15 @@ import useAutocomplete from "@material-ui/lab/useAutocomplete";
 import { useEffect } from "react";
 import { useStyles } from "./StylesAutocomplete";
 
-const link = "http://localhost:3001/pirate-search/";
+const ip = "https://torrent-app-v2.herokuapp.com/"
+
+const link = ip+"pirate-search/";
+
 function Search_bar() {
+
+  !localStorage.getItem("suggestion")  && localStorage.setItem("suggestion",JSON.stringify([]))
+
+
   const inputEl = useRef(null);
   const { setSearch, setInput_value, setSearch_link, setLoading } =
     useContext(DataContext);
@@ -17,8 +24,9 @@ function Search_bar() {
   const [downKEY, setdownKEY] = useState(false);
 
   const [myArr, setmyArr] = useState(
-    JSON.parse(localStorage.getItem("suggestion").split(","))
+    JSON.parse(localStorage.getItem("suggestion"))
   );
+
 
   const filter_suggestion = myArr.filter(
     (item, index) => myArr.indexOf(item) === index
@@ -73,21 +81,20 @@ function Search_bar() {
   });
 
   return (
-    <div className="search-options-div ">
+    <div >
       <div ref={inputEl} className="text-field-container">
-        <div className="form-group" {...getRootProps()}>
+        <div  {...getRootProps()}>
           <input
+          className="search-box-top"
             onClick={(e) => {
               setopenState(true);
             }}
             onKeyDown={(event) => {
-              event.key === "ArrowDown" && console.log("object mmg");
               event.key === "ArrowDown" && setdownKEY(true);
               event.key === "ArrowDown" && sethit2(false);
               event.key === "Backspace" && setopenState(true);
-              if (event.key === "Enter") {
-                setopenState(false);
-              }
+              if (event.key === "Enter")   setopenState(false);
+              
 
               const eventValue = event.target.value;
 
@@ -95,14 +102,13 @@ function Search_bar() {
 
               console.log(downKEY, "downKEY");
               if (event.key === "Enter" && downKEY) {
-                console.log(event.key, "should be enter**********");
+
                 sethit2(true);
                 setopenState(false);
                 if (hit2) {
-                  console.log(hit2, "hit2", 2);
+       
 
                   setSearch(event.target.value);
-
                   setSearch_link(link);
                   setLoading(false);
                   let path = "pirate-search";
@@ -132,8 +138,8 @@ function Search_bar() {
                 history.push(path);
               }
             }}
-            className="form-field input-search"
-            type="search"
+          
+            type="Search 🔍"
             placeholder="search"
             size="30"
             {...getInputProps()}
@@ -173,7 +179,7 @@ function Search_bar() {
                     setSearch(option);
                     setopenState(false);
                     setSearch_link(link);
-                    setLoading(false);
+           
                   }}
                   style={{ padding: "0", margin: "0", position: "relative" }}
                   key={index}
@@ -201,7 +207,7 @@ function Search_bar() {
                         left: "230px",
                         top: "6px",
                       }}
-                      class="fas fa-trash small-trash"
+                      className="fas fa-trash small-trash"
                     ></i>
                   </p>
                 </p>
