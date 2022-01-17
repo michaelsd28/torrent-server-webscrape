@@ -1,38 +1,91 @@
 import React from "react";
+import "../../Styles/Mobile.css"
+import Footer from "../Footer";
+import GoTop from "../top 4 columns/GoTop";
+import PageControl from "../Top/PageControl";
 
 function TorrentSearch_TableM() {
   return (
-    <div>
-      <table class="table table-hover table-dark">
-        <thead>
+    <>
+   
+    <div className="container tableMobile-container">
+      <table 
+      
+      
+      className="table table-hover table-dark table-mobile table-borderless table-striped"  >
+        <thead
+     
+        
+        >
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+           
+            <th >Name</th>
+            <th >Link</th>
+            <th >Seed</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+   
+            <td>[Kawaiika-Raws] (2010) B Gata H Kei [BDRip 1920x1080 HEVC FLAC]</td>
+            <td><img
+            style={{
+              height:"20px"
+            }}
+            src="images/mobile/magnet.png"/></td>
+            <td>28</td>
           </tr>
           <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+   
+   <td>[Kawaiika-Raws] (2010) B Gata H Kei [BDRip 1920x1080 HEVC FLAC]</td>
+   <td><img
+   style={{
+     height:"20px"
+   }}
+   src="images/mobile/magnet.png"/></td>
+   <td>28</td>
+ </tr>
+
+ <tr>
+   
+   <td>[Kawaiika-Raws] (2010) B Gata H Kei [BDRip 1920x1080 HEVC FLAC]</td>
+   <td><img
+   style={{
+     height:"20px"
+   }}
+   src="images/mobile/magnet.png"/></td>
+   <td>28</td>
+ </tr>
+ <tr>
+   
+   <td>[Kawaiika-Raws] (2010) B Gata H Kei [BDRip 1920x1080 HEVC FLAC]</td>
+   <td><img
+   style={{
+     height:"20px"
+   }}
+   src="images/mobile/magnet.png"/></td>
+   <td>28</td>
+ </tr>
+ <tr>
+   
+   <td>[Kawaiika-Raws] (2010) B Gata H Kei [BDRip 1920x1080 HEVC FLAC]</td>
+   <td><img
+   style={{
+     height:"20px"
+   }}
+   src="images/mobile/magnet.png"/></td>
+   <td>28</td>
+ </tr>
+      
         </tbody>
       </table>
+
+      <div>
+        <PageControl/>
+      </div>
+      <GoTop/>
     </div>
+    </>
   );
 }
 
