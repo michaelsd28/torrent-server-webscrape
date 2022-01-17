@@ -4,7 +4,9 @@ import Torrent_search_table from "../Top/Torrent search table";
 import { filterDATA } from "./Filter data";
 import Loading from "../Animation/Loading";
 import PageControl from "../Top/PageControl";
-import GoTop from "../Top 4 columns/GoTop";
+import GoTop from "../top 4 columns/GoTop"
+
+
 import "../../Styles/index.css"
 
 
