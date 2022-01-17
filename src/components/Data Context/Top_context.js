@@ -1,19 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 
-import { obj, suggestion} from "../Animation/LocalStorage";
+import { obj, suggestion } from "../Animation/LocalStorage";
 
-const ip = "https://torrent-app-v2.herokuapp.com/" 
+const ip = "https://torrent-app-v2.herokuapp.com/";
 
-
-
-
-const top_movies_URL = ip+"top-movies";
-const top_shows_URL = ip+"top-shows";
-const top_games_URL = ip+"top-games";
-const top_anime_URL = ip+"top-anime";
-
-
-
+const top_movies_URL = ip + "top-movies";
+const top_shows_URL = ip + "top-shows";
+const top_games_URL = ip + "top-games";
+const top_anime_URL = ip + "top-anime";
 
 export const DataContext = createContext();
 
@@ -28,20 +22,12 @@ export const DataProvider = ({ children }) => {
   const [input_value, setInput_value] = useState("");
   const [search_link, setSearch_link] = useState("");
   const [loading_top, setLoading_top] = useState(false);
-  const [loading, setLoading] = useState(true ); 
-  const [filter,setFilter] = useState({})
-
-
-
-
-
-
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState({});
+  const [mobileData, setMobileData] = useState({});
 
   useEffect(() => {
-
-    
-
-   async function fetchTop_Torrent() {
+    async function fetchTop_Torrent() {
       setDidMount(true);
 
       const response = await fetch(top_movies_URL);
@@ -105,11 +91,14 @@ export const DataProvider = ({ children }) => {
         loading,
         setLoading,
 
-        filter,setFilter
+        filter,
+        setFilter,
+        
+        mobileData,
+        setMobileData
       }}
     >
       {children}
     </DataContext.Provider>
   );
 };
-

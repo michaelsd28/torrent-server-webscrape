@@ -29,7 +29,7 @@ function App() {
               path="/pirate-search"
               exact
               component={
-                parseInt(width) > 800 ? Pirate_bay_search : TorrentSearch_TableM
+              Pirate_bay_search 
               }
             />
 
